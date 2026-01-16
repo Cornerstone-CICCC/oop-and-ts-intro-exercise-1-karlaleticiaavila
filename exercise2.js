@@ -5,9 +5,32 @@
 //   - withdraw(amount): Deducts the amount from the balance if there are sufficient funds.
 // Add a static method compareAccounts(account1, account2) that compares two BankAccount objects and returns the account with the higher balance.
 
-class BankAccount {
-  // YOUR CODE HERE
+
+  class BankAccount {
+  constructor(accountNumber, balance) {
+    this.accountNumber = accountNumber;
+    this.balance = balance;
+  }
+
+  deposit(amount) {
+    this.balance += amount;
+  }
+
+  withdraw(amount) {
+    if (this.balance >= amount) {
+      this.balance -= amount;
+    }
+  }
+
+  static compareAccounts(account1, account2) {
+    if (account1.balance >= account2.balance) {
+      return account1;
+    } else {
+      return account2;
+    }
+  }
 }
+
 
 
 // TEST CASE / DRIVER CODE
